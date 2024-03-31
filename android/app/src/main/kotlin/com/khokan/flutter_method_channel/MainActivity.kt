@@ -1,5 +1,6 @@
-package com.example.flutter_method_channel
+package com.khokan.flutter_method_channel
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -16,10 +17,8 @@ import android.os.Looper
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.util.Log
 import android.widget.Toast
 import androidx.annotation.ColorRes
-import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import io.flutter.embedding.android.FlutterActivity
@@ -106,6 +105,7 @@ class MainActivity : FlutterActivity() {
         return spannable
     }
 
+    @SuppressLint("MissingPermission")
     private fun showIncomingCallNotification() {
         val intentAccept = Intent(context, MyReceiverAccept::class.java)
         intentAccept.putExtra("NOTIFICATION_ID", INCOMING_CALL_NOTIFICATION_ID)
